@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('customer_id');
             $table->decimal('total_price', 10, 2);
-            $table->json('tax_data')->nullable();
+            $table->decimal('tax_data')->default(0);
             $table->decimal('discount', 5, 2)->default(0);
             $table->timestamps();
 

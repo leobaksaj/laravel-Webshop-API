@@ -20,19 +20,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::resource('products', ProductController::class );
+
 Route::resource('categories', CategoryController::class );
 Route::resource('price-lists', PriceListController::class);
 Route::resource('contract-lists', ContractListController::class);
-Route::resource('orders', OrderController::class);
 
 Route::get('/products/filter', [ProductController::class, 'filter'])->name('products.filter'); //filtriranje proizvoda
 Route::get('/products/{product}', [ProductController::class, 'showProduct']);                  //ispis jednog proizvoda 
 Route::get('/products', [ProductController::class, 'index']);# ->name('products.index');       //ispis proizvoda sa paginacijom
 Route::get('/categories/{category}/products', [ProductController::class, 'indexByCategory']);  //ispis proizvoda po kategoriji sa paginacijom
 
-Route::post('/orders', [OrderController::class, 'create']);
+Route::post('/orders', [OrderController::class, 'store'])->name('orders.store');
+Route::get('/orders/{orderId}', [OrderController::class, 'showOrder']);
+Route::get('/orders', [OrderController::class, 'index']);
 
+
+Route::post('/products', [ProductController::class, 'store']);
 Route::post('/products/{product}/add-category', [ProductController::class, 'addCategory'])->name('products.addCategory');
 Route::post('/products/{product}/price-lists', [ProductController::class, 'addPriceList']);
 

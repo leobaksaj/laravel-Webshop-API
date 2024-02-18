@@ -46,7 +46,6 @@ class CustomerController extends Controller
             return response()->json(['message' => 'Customer not found'], 404);
         }
 
-        // Validacija podataka
         $request->validate([
             'first_name' => 'required|string|max:255',
             'last_name' => 'required|string|max:255',
@@ -57,7 +56,6 @@ class CustomerController extends Controller
             'country' => 'required|string|max:255',
         ]);
 
-        // Ažuriranje podataka o kupcu
         $customer->update($request->all());
 
         return response()->json($customer);

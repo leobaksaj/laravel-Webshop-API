@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
         //     PriceListSeeder::class,
         // ]);
         
-        $this->call(ContractListsSeeder::class);
+        // $this->call(CustomersTableSeeder::class);
         #$this->call(UsersSeeder::class);
         // \App\Models\User::factory(10)->create();
 

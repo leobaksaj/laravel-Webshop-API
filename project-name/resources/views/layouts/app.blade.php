@@ -18,7 +18,7 @@
 </head>
 <body>
     <div class="container">
-        @yield('content') {{-- Ovdje će se ubaciti sadržaj pojedinog view-a koji proširuje ovaj layout --}}
+        @yield('content')
     </div>
 
 </body>
